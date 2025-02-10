@@ -14,7 +14,7 @@ return new class extends Migration
         // Membuat tabel jika belum ada
         Schema::create('tm_barang_inventaris', function (Blueprint $table) {
             $table->string('br_kode', 12)->primary();
-            // $table->string('jns_brg_kode', 5)->nullable();
+            $table->string('jns_brg_kode', 5)->nullable();
             // $table->string('user_id', 10)->nullable();
             $table->string('br_nama', 50)->nullable();
             $table->date('br_tgl_terima')->nullable();
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->timestamps();
 
             // // Menambahkan foreign key
-            // $table->foreign('jns_brg_kode')->references('jns_brg_kode')->on('tr_jenis_barang');
+            $table->foreign('jns_brg_kode')->references('jns_brg_kode')->on('tr_jenis_barang');
             // $table->foreign('user_id')->references('user_id')->on('tm_user');
         });
     }

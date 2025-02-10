@@ -14,7 +14,7 @@ return new class extends Migration
     Schema::create('tm_user', function (Blueprint $table) {
     $table->string('user_id', 10)->primary();
     $table->string('user_nama', 50)->nullable();
-    $table->string('user_pass', 32)->nullable();
+    $table->string('user_pass', 60)->nullable();
     $table->char('user_hak', 2)->nullable();
     $table->char('user_sts', 2)->nullable();
     $table->timestamps();

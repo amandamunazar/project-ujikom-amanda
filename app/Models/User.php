@@ -17,10 +17,14 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
+protected $primaryKey = 'user_id';
+public $incrementing = false;
+protected $keyType = 'string';
+    protected $table = 'tm_user';
+
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'user_nama',
+        'user_pass',
     ];
 
     /**
@@ -29,8 +33,7 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'user_pass',
     ];
 
     /**
@@ -41,8 +44,12 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'user_id' => 'string',
+            'user_pass' => 'hashed',
         ];
+    }
+
+    public function barangInventaris(){
+        return $this->hasMany(BarangInventaris::class,'user_id');
     }
 }
